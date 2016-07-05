@@ -1,0 +1,13 @@
+{
+    "name": "nadimtuhin/php-urt",
+    "authors": [
+        {
+            "name": "Nadim Tuhin",
+            "email": "nadimtuhin@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/http-foundation": "^3.1",
+        "vlucas/phpdotenv": "^2.3"
+    }
+}
