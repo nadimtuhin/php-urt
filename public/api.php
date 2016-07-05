@@ -1,5 +1,5 @@
 <?php 
-require ('../bootstrap.php');
+require (__DIR__.'/../bootstrap.php');
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 

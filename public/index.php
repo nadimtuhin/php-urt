@@ -1,5 +1,5 @@
 <?php 
-require ('../bootstrap.php');
+require (__DIR__.'/../bootstrap.php');
 
 $data = getUrtServerStatus($host, $port, $connectionTimeout);
 $maxClients = $data['info']['sv_maxclients'];
