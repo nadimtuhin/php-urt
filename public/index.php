@@ -31,4 +31,3 @@ $mapName = $data['info']['mapname'];
 <?php endforeach; ?>
 </table>
 <?php endif; ?>
-index.php
