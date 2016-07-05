@@ -5,7 +5,7 @@ rename .env.example file to .env
 
 ### .env configuration
 
-host: urt server host ip
+host: urt server ip
 
 port: urt server port
 
