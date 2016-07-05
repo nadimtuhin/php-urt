@@ -1,5 +1,5 @@
 <?php 
-require ('bootstrap.php');
+require ('../bootstrap.php');
 
 $data = getUrtServerStatus($host, $port, $connectionTimeout);
 $maxClients = $data['info']['sv_maxclients'];
@@ -31,3 +31,4 @@ $mapName = $data['info']['mapname'];
 <?php endforeach; ?>
 </table>
 <?php endif; ?>
+index.php
