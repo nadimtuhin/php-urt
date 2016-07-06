@@ -7,6 +7,7 @@ function getUrtServerStatus($host, $port, $timeout){
     $data = explode("\n", $data);
 
     $players = parsePlayers($data);
+    $players = sortPlayers($players);
     $info = parseInfo($data);
 
     return compact('players', 'info');
@@ -86,4 +87,13 @@ function parseInfo($raw){
     }, []);
 
     return $info;
+}
+
+function sortPlayers($players){
+    usort($players, function ($p1, $p2) {
+        if ($p1['ping'] == $p2['ping']) return 0;
+        return $p1['ping'] < $p2['ping'] ? -1 : 1;
+    });
+
+    return array_reverse($players);
 }
