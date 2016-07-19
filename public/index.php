@@ -42,4 +42,4 @@ $mapName = $data['info']['mapname'];
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<div class="fb-comments" data-href="http://nadimtuhin.com/urt" data-numposts="5"></div>
+<div class="fb-comments" data-href="http://nadimtuhin.com/urt" data-order-by="reverse_time" data-numposts="5"></div>
