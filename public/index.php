@@ -8,7 +8,7 @@ $mapName = $data['info']['mapname'];
 ?>
 
 <meta charset="utf-8">
-<meta http-equiv="refresh" content="30">
+<meta http-equiv="refresh" content="60">
 <title> <?php echo "$totalPlayers/$maxClients - $mapName"; ?></title>
 
 <p>Currently playing: <?php echo $totalPlayers; ?>/<?php echo $maxClients; ?></p>
