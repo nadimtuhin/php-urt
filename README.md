@@ -1,13 +1,15 @@
 # php-urt
 
-### How to use
-rename .env.example file to .env
+## Setup
 
-### .env configuration
+Rename `.env.example` to `.env`.
+
+## Configuration
+
 ```
-host: urt server ip
+host: urt server IP
 
 port: urt server port
 
-connection_timeout: in seconds
+connection_timeout: seconds
 ```
