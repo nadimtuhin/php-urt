@@ -19,12 +19,11 @@ function createUdpSocketConnection($host, $port, $timeout){
         throw new \Exception("Error! Unable to set nonblock on socket.");
     }
     $time = time();
-    $error = "";
 
     // check if the connection timed out
     while (!@socket_connect ($socket, $host, $port )) {
         $err = socket_last_error ($socket);
-        if ($err == 115 || $err == 114) {
+        if ($err == SOCKET_EINPROGRESS || $err == SOCKET_EALREADY) {
             if ((time () - $time) >= $timeout)
             {
                 socket_close ($socket);
@@ -33,10 +32,9 @@ function createUdpSocketConnection($host, $port, $timeout){
             sleep(1);
             continue;
         }
-    }
 
-    if( strlen($error) != 0 ) {
-        throw new \Exception("Error! {$error}");
+        socket_close ($socket);
+        throw new \Exception("Error! ".socket_strerror($err));
     }
 
     return $socket;
@@ -64,10 +62,10 @@ function writeInSocketConnection($socket, $data){
 function parsePlayers($raw){
     $players = array_filter(array_slice($raw, 2));
     $players = array_map(function($player){
-        $player = explode(' ',$player);
+        $player = explode(' ',$player, 3);
 
         return [
-            'name' => $player[2],
+            'name' => trim($player[2], '"'),
             'ping' => $player[1],
             'score' => $player[0]
         ];
