@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        php-version: ['8.1', '8.2']
+        php-version: ['8.1', '8.2', '8.3']
 
     steps:
       - uses: actions/checkout@v4
@@ -32,3 +32,6 @@ jobs:
 
       - name: Check PHP syntax
         run: find . -name "*.php" -not -path "./vendor/*" | xargs -I{} php -l {}
+
+      - name: Run tests
+        run: timeout 60 php tests/run.php
