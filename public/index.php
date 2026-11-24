@@ -9,10 +9,10 @@ $mapName = $data['info']['mapname'];
 
 <meta charset="utf-8">
 <meta http-equiv="refresh" content="60">
-<title> <?php echo "$totalPlayers/$maxClients - $mapName"; ?></title>
+<title> <?php echo htmlspecialchars("$totalPlayers/$maxClients - $mapName"); ?></title>
 
-<p>Currently playing: <?php echo $totalPlayers; ?>/<?php echo $maxClients; ?></p>
-<p>Map Name: <?php echo $data['info']['mapname']?></p>
+<p>Currently playing: <?php echo $totalPlayers; ?>/<?php echo htmlspecialchars($maxClients); ?></p>
+<p>Map Name: <?php echo htmlspecialchars($mapName)?></p>
 
 
 <?php if(count($data['players'])): ?>
@@ -25,9 +25,9 @@ $mapName = $data['info']['mapname'];
 
 <?php foreach($data['players'] as $player):?>
 	<tr>
-		<td><?php echo $player['name']?></td>
-		<td><?php echo $player['score']?></td>
-		<td><?php echo $player['ping']?></td>
+		<td><?php echo htmlspecialchars($player['name'])?></td>
+		<td><?php echo htmlspecialchars($player['score'])?></td>
+		<td><?php echo htmlspecialchars($player['ping'])?></td>
 	</tr>
 <?php endforeach; ?>
 </table>
