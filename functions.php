@@ -64,10 +64,10 @@ function writeInSocketConnection($socket, $data){
 function parsePlayers($raw){
     $players = array_filter(array_slice($raw, 2));
     $players = array_map(function($player){
-        $player = explode(' ',$player);
+        $player = explode(' ',$player, 3);
 
         return [
-            'name' => $player[2],
+            'name' => trim($player[2], '"'),
             'ping' => $player[1],
             'score' => $player[0]
         ];
